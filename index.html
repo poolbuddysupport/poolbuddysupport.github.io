@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support – Swim Pool Buddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --ink: #1a1714;
+      --muted: #6b6560;
+      --accent: #2e6de4;
+      --accent-light: #e8eefb;
+      --border: #e5e2dc;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 64px;
+    }
+
+    .app-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, #2e6de4 0%, #06b6d4 100%);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .app-icon svg { width: 22px; height: 22px; fill: #fff; }
+
+    .app-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 760px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      transition: opacity 0.15s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .contact-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 760px;
+      margin: 56px auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    details[open] {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: 0.97rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.25s, background 0.2s;
+    }
+
+    .chevron svg { width: 12px; height: 12px; stroke: var(--accent); stroke-width: 2.5; fill: none; }
+
+    details[open] .chevron {
+      transform: rotate(180deg);
+      background: var(--accent);
+    }
+
+    details[open] .chevron svg { stroke: #fff; }
+
+    .faq-body {
+      padding: 0 24px 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .faq-body a { color: var(--accent); }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      max-width: 760px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    .contact-inner {
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .contact-inner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-inner p {
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      font-size: 0.95rem;
+      max-width: 380px;
+    }
+
+    .email-link {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 12px 24px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .email-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 300;
+    }
+
+    footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 480px) {
+      .hero { margin-top: 40px; }
+      .contact-inner { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ░░ HEADER ░░ -->
+  <header>
+    <div class="header-inner">
+      <div class="app-icon">
+        <!-- Pool / water wave icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M2 17c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M12 3a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM12 3v4M9 7h6"/>
+        </svg>
+      </div>
+      <span class="app-name">Swim Pool Buddy</span>
+    </div>
+  </header>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero">
+    <h1>How can we<br/>help you?</h1>
+    <p>Browse the common questions below, or reach out and we'll get back to you as soon as possible.</p>
+    <a class="contact-btn" href="mailto:poolbuddysupport@gmail.com">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+      Email Support
+    </a>
+  </section>
+
+  <div class="divider">Frequently Asked Questions</div>
+
+  <!-- ░░ FAQ ░░ -->
+  <section class="faq">
+
+    <details>
+      <summary>
+        How do I get started with Swim Pool Buddy?
+        <span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </summary>
+      <div class="faq-body">
+        After downloading the app, open it and follow the instructions to select your pool pump type, size of pool, and location. Your location is used to determine whether you are currently in a cold, mild, or hot climate, which determines the turnover needs for your pool to ensure sufficient filtering. You'll be up and running in under two minutes. If you run into any issues during setup, feel free to contact us.
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        Is my data private and secure?
+        <span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </summary>
+      <div class="faq-body">
+        Yes. We take privacy seriously. Your data is stored only locally on your phone — we do not store any of your data on our servers and we never sell your information to third parties. See our <a href="privacy.html">Privacy Policy</a> for full details.
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        The app is crashing — what should I do?
+        <span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </summary>
+      <div class="faq-body">
+        First, try force-quitting and reopening the app. If crashes persist, make sure you're on the latest version via the App Store. Still happening? Email us with your device model and iOS version and we'll dig in.
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        How do I request a refund?
+        <span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </summary>
+      <div class="faq-body">
+        Refunds are handled by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in, find your purchase, and select "Request a Refund."
+      </div>
+    </details>
+
+  </section>
+
+  <!-- ░░ CONTACT CARD ░░ -->
+  <div class="contact-card">
+    <div class="contact-inner">
+      <h2>Still need help?</h2>
+      <p>We typically reply within one business day. Drop us a line and we'll sort it out.</p>
+      <a class="email-link" href="mailto:poolbuddysupport@gmail.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        poolbuddysupport@gmail.com
+      </a>
+    </div>
+  </div>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer>
+    <p>&copy; 2026 Swim Pool Buddy. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
+
+</body>
+</html>
