@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy – Swim Pool Buddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0f8ff;
+      --surface: #ffffff;
+      --ink: #1a2740;
+      --muted: #4a6680;
+      --accent: #0077b6;
+      --accent-light: #e0f0ff;
+      --border: #c8dff0;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 68px;
+    }
+
+    .app-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .app-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+    .app-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .header-inner nav {
+      margin-left: auto;
+    }
+
+    .header-inner nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 760px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero .meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight {
+      max-width: 760px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+    }
+
+    .highlight-inner {
+      background: var(--accent-light);
+      border: 1px solid #a8d4f0;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .highlight-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .highlight-icon svg {
+      width: 18px; height: 18px;
+      fill: none; stroke: #fff;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .highlight-text strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .highlight-text p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .section ul li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .section ul li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+
+    .contact-email {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 300;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 480px) {
+      .hero { margin-top: 36px; }
+      .section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ░░ HEADER ░░ -->
+  <header>
+    <div class="header-inner">
+      <div class="app-icon">
+        <img src="poolbuddyicon.png" alt="Swim Pool Buddy icon"/>
+      </div>
+      <span class="app-name">Swim Pool Buddy</span>
+      <nav><a href="index.html">← Support</a></nav>
+    </div>
+  </header>
+
+  <!-- ░░ HERO ░░ -->
+  <div class="hero">
+    <div class="badge">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: June 1, 2026 &nbsp;·&nbsp; Effective immediately upon download</p>
+  </div>
+
+  <!-- ░░ HIGHLIGHT ░░ -->
+  <div class="highlight">
+    <div class="highlight-inner">
+      <div class="highlight-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="highlight-text">
+        <strong>The short version: we collect nothing.</strong>
+        <p>Swim Pool Buddy works entirely on your device. We do not collect, transmit, or store any personal information — ever. Everything stays on your iPhone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ POLICY SECTIONS ░░ -->
+  <div class="content">
+
+    <div class="section">
+      <h2>1. Information We Collect</h2>
+      <p>We do not collect any personal information from users of Swim Pool Buddy.</p>
+      <p>Any data you enter into the app — such as your pool pump type, pool size, location, or settings — is stored exclusively on your device using iOS local storage. This data never leaves your device and is never transmitted to us or any third party.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Data Storage</h2>
+      <p>All data you input into Swim Pool Buddy is stored locally on your iPhone. Specifically:</p>
+      <ul>
+        <li>Your data lives on your device only and is not uploaded to any server.</li>
+        <li>We have no access to anything you enter into the app.</li>
+        <li>If you delete the app, all locally stored data is permanently removed from your device.</li>
+        <li>Data is not shared with iCloud unless you have explicitly enabled iCloud sync for the app in your device settings.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Location Information</h2>
+      <p>Swim Pool Buddy asks for your general location (e.g. city or region) so it can determine whether you are in a cold, mild, or hot climate. This information is used solely to calculate the appropriate pool turnover rate for your conditions.</p>
+      <p>Your location is processed entirely on your device and is never transmitted to our servers or any third party.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. Third-Party Services</h2>
+      <p>Swim Pool Buddy does not integrate any third-party analytics, advertising, crash-reporting, or tracking SDKs. We do not use services such as Google Analytics, Facebook SDK, Firebase, or similar tools.</p>
+      <p>The only third party involved in delivering the app to you is Apple, via the App Store. Apple's privacy practices are governed by <a class="contact-email" href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Purchases</h2>
+      <p>If Swim Pool Buddy includes a one-time purchase or subscription, all transactions are processed entirely by Apple through the App Store. We do not receive or store your payment details, credit card information, or billing address at any point.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Children's Privacy</h2>
+      <p>Swim Pool Buddy does not knowingly collect any information from anyone, including children under the age of 13. Because we collect no data whatsoever, the app is safe for users of all ages from a data-privacy standpoint.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Changes to This Policy</h2>
+      <p>If we ever update this privacy policy, the new version will be posted on this page with an updated "Last updated" date. Because we collect no data, any future changes are unlikely to affect your privacy.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Contact Us</h2>
+      <p>If you have any questions about this privacy policy, you're welcome to reach out:</p>
+      <p><a class="contact-email" href="mailto:poolbuddysupport@gmail.com">poolbuddysupport@gmail.com</a></p>
+    </div>
+
+  </div>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer>
+    <p>&copy; 2026 Swim Pool Buddy. All rights reserved. &nbsp;·&nbsp; <a href="index.html">Support</a></p>
+  </footer>
+
+</body>
+</html>
